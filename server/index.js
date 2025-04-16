@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// const __dirname = new URL('.', import.meta.url).pathname;
-const __dirname = path.parse(import.meta.url)['dir'].replace('file:///','');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let app = express();
 app.use(express.urlencoded({ extended: true }));
