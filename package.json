@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/LostInBrittany/introduction-to-htmx#readme",
   "dependencies": {
-    "express": "^4.20.0"
+    "express": "^4.21.2"
   }
 }
