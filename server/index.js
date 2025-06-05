@@ -2,7 +2,9 @@ import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
+// const __dirname = path.parse(import.meta.url)['dir'].replace('file:///','');
+
 
 let app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -256,7 +258,7 @@ app.get('/task/:index', (req, resp) => {
 });
 
 app.delete('/task/:index', (req, resp) => {
-  let index = req.body.index;
+  let index = req.params.index;
   taskList.splice(index,1);
   resp.send(`${taskList.map((t,i) => taskFragment(t,i)).join("\n")}`);
 });

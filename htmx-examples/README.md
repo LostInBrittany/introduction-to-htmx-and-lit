@@ -1,10 +1,17 @@
 # 🚀 </> htmx examples
 
-This folder contains various **htmx** examples demonstrating different techniques for **making AJAX requests**, **handling events**, and **dynamically updating the DOM**.
+Welcome to the htmx examples suite! This collection of hands-on labs is designed to guide you through learning htmx step-by-step. Each example builds on the previous one, helping you understand how to make AJAX requests, handle events, and dynamically update the DOM with htmx.
 
-These examples accompany the talk: **_htmx 2.0 & Web Components: A Perfect Match for Frontend Development_**. For more details, visit the [main README](../README.md).
+## How to Use This Guide
+
+- Follow the examples in order to build your understanding progressively.
+- Each example includes a learning objective, code samples, and explanations.
+- Try modifying the examples and experimenting with the code to deepen your learning.
+- Make sure you have a working server environment to serve the example files and handle requests.
+- Refer to the [main README](../README.md) for additional context and setup instructions.
 
 ---
+
 
 ## 📌 Sending requests other than `GET`
 

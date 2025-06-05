@@ -5,8 +5,8 @@ This repository contains all the code and examples from my talk:
 
 - **2024-09-24** - [FinistDevs](https://noti.st/lostinbrittany/YtYnR4/htmx-2-0-web-components-a-perfect-match-for-frontend-development) (Brest, France) - [Slides (in French)](./slides/2024-09-24_-_FinistDev_-_htmx_2.0_and_Web_Components_%20A_Perfect_Match_for_Frontend_Development.pdf)
 - **2025-02-04** - [Jfokus](https://www.jfokus.se/talks/2244) (Stockholm, Sweden) - [Slides](./slides/2025-02-04_-_JFokus%20_-_htmx_2.0_and_Web_Components_%20A_Perfect_Match_for_Frontend_Development.pdf)
-
 - **2025-04-16** - [Devoxx France](https://www.devoxx.fr/) (Paris, France) 
+- **2025-06-05** - [DevQuest](https://www.devquest.fr/) (Niort, France)
 
 This talk explores how **htmx 2.0** enhances HTML with seamless interactivity while **Web Components** (Lit) encapsulate logic and styling, providing a powerful yet lightweight alternative to heavy frontend frameworks.
 
