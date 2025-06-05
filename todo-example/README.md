@@ -1,14 +1,28 @@
 # ✅ To-do list example
 
+Welcome to the To-do List example! This is a step-by-step guided exercise designed to help you learn how to build a dynamic to-do list application using htmx. Follow each step in order to progressively add features and understand how htmx enables dynamic updates without full page reloads.
+
 This folder contains a **very simple yet functional to-do list application** built using **htmx**. It demonstrates how to dynamically add and remove tasks without reloading the page, and how to use **htmx** to send requests and update the DOM declaratively.
 
 This example accompanies the talk: **_htmx 2.0 & Web Components: A Perfect Match for Frontend Development_**. For more details, visit the [main README](../README.md).
+
+## How to Use This Guide
+
+- Follow the steps sequentially to build your understanding.
+- Each step introduces new concepts and features.
+- Try modifying the code and experimenting to deepen your learning.
+- Ensure you have a server environment to serve the example files and handle requests.
+
 
 Here is the section for **Step 1: A static view of the to-do list**, following the same style as the previous examples:
 
 ---
 
+
 ## 📌 Step 1: A static view of the to-do list
+
+### Learning Objective
+Understand the basic static HTML structure of the to-do list.
 
 We start with a **basic static structure** for the to-do list. This step sets up the **HTML layout** without any interactivity yet.
 
@@ -31,6 +45,10 @@ _Above: Step 1: A static view of the to-do list._
 - The `#todo-list` `div` is an **empty placeholder** where tasks will be displayed.
 - The form allows users to **input a task** and submit it.
 - **At this stage, the form does nothing yet**, submitting the form will trigger a default page reload.
+
+### Try it yourself
+- Open the file in a browser and observe the static layout.
+- Think about how you might add interactivity in the next steps.
 
 This is just a **static HTML structure**. In the next steps, we will enhance it with interactivity using **htmx**.
 
@@ -102,6 +120,9 @@ Now, when a user submits a new task, it appears instantly **without needing to w
 
 ## 📌 Step 3: Appending tasks instead of replacing the list
 
+### Learning Objective
+Improve the to-do list by appending new tasks instead of replacing the entire list.
+
 In the previous step, submitting a task replaced the entire to-do list with the new server response. Now, we improve the behavior by **appending new tasks to the existing list** instead of replacing it.
 
 📁 **File:** `./todo-step-03.html`
@@ -123,12 +144,17 @@ In the previous step, submitting a task replaced the entire to-do list with the 
 </div>
 ```
 
-![Step 3: Appending tasks instead of replacing the list](../img/todo-step-03.jpg)  
+![Step 3: Appending tasks instead of replacing the list](../img/todo-step-03.jpg)
 _Above: Step 3: Appending tasks instead of replacing the list._
 
 ### 🔹 How it works
 
-We add `hx-swap="beforeend"`, which **appends** new tasks **to the existing `#todo-list`** instead of replacing it. 
+We add `hx-swap="beforeend"`, which **appends** new tasks **to the existing `#todo-list`** instead of replacing it.
+
+### Try it yourself
+- Submit multiple tasks and observe how they are appended.
+- Modify the `hx-swap` attribute to other values and see the effect.
+- Challenge: Change the server to send a different HTML structure for new tasks.
 
 ### 🔧 A peek at the updated server-side
 
@@ -136,9 +162,9 @@ To support this change, we slightly modify the server response to send only the 
 
 📁 **File:** `./server/index.js`
 ```js
-app.post('/todo-list/step03/task', (req, resp) => { 
+app.post('/todo-list/step03/task', (req, resp) => {
   let task = req.body.task;
-  taskList.push(`<li>${task}</li>`);  
+  taskList.push(`<li>${task}</li>`);
   resp.send(`<li>${task}</li>`);
 });
 
