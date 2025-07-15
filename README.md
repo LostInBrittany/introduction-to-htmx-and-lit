@@ -7,6 +7,8 @@ This repository contains all the code and examples from my talk:
 - **2025-02-04** - [Jfokus](https://www.jfokus.se/talks/2244) (Stockholm, Sweden) - [Slides](./slides/2025-02-04_-_JFokus%20_-_htmx_2.0_and_Web_Components_%20A_Perfect_Match_for_Frontend_Development.pdf)
 - **2025-04-16** - [Devoxx France](https://www.devoxx.fr/) (Paris, France) 
 - **2025-06-05** - [DevQuest](https://www.devquest.fr/) (Niort, France)
+- **2025-06-26** - [SunnyTech](https://sunnytech.io/) (Montpellier, France)
+- **2025-07-08** - [DevBcn](https://www.devbcn.com/) (Barcelona, Spain)
 
 This talk explores how **htmx 2.0** enhances HTML with seamless interactivity while **Web Components** (Lit) encapsulate logic and styling, providing a powerful yet lightweight alternative to heavy frontend frameworks.
 
