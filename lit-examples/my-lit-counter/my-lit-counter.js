@@ -1,4 +1,9 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3.3.1/all/lit-all.min.js';
+
+/**
+ * Or if you want a local copy of the library
+ * import { LitElement, html, css } from '/lib/lit-all.min.js';
+ */
 
 let logoUrl = `${import.meta.url}/../assets/logo.png`;
 
@@ -54,7 +59,7 @@ export class MyLitCounter extends LitElement {
 
   __increment() {
     this.counter += 1;
-    this.dispatchEvent(new Event('increased', {bubbles: true, composed: true}));
+    this.dispatchEvent(new Event('increased', { bubbles: true, composed: true }));
   }
 
   render() {

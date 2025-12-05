@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <title>&lt;/&gt; htmx examples: Boosting links</title>
-    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    <!--  Alternative if you have a local copy of the library 
+        <script src="/lib/htmx.min.js"></script> 
+    -->
 </head>
 
 <body>
@@ -14,8 +17,8 @@
     <h2>Boosting standard links</h2>
 
     <p>
-        This page uses <code>hx-boost="true"</code> on the <code>body</code> tag.
-        This means all standard links and forms will be converted to AJAX requests.
+        This page uses <code>hx-boost=" true"</code> on the < code> body</code> tag.
+            This means all standard links and forms will be converted to AJAX requests.
     </p>
 
     <nav hx-boost="true">

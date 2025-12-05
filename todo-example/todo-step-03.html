@@ -12,10 +12,13 @@
   <h1>To-do list example</h1>
   <h2>Step 3: Appending tasks instead of replacing the list</h2>
 
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.8/dist/htmx.min.js"></script>
+  <!--  Alternative if you have a local copy of the library 
+    <script src="/lib/htmx.min.js"></script> 
+  -->
 
   <div id="app" class="container">
-    <div id="todo-list"></div>
+    <ul id="todo-list"></ul>
     <form id="addTask" hx-post="/todo-list/step03/task" hx-trigger="submit" hx-target="#todo-list" hx-swap="beforeend">
       <input type="text" name="task" required />
       <input type="submit" value="Add task" />

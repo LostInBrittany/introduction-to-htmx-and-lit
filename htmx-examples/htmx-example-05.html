@@ -12,7 +12,10 @@
   <h1>&lt;/&gt; htmx examples</h1>
   <h2>More triggering options</h2>
 
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.8/dist/htmx.min.js"></script>
+  <!--  Alternative if you have a local copy of the library
+    <script src="/lib/htmx.min.js"></script>
+  -->
 
   <div id="buttons-column">
     <button hx-trigger="every 5s" hx-get="/trigger/5seconds" hx-target="#status">

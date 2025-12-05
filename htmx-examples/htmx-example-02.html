@@ -13,7 +13,10 @@
   <h1>&lt;/&gt; htmx examples</h1>
   <h2>Sending RESTful requests: <br> `GET`, `POST`, `PUT` and `DELETE`</h2>
 
-  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.8/dist/htmx.min.js"></script>
+  <!--  Alternative if you have a local copy of the library 
+    <script src="/lib/htmx.min.js"></script> 
+  -->
 
   <div id="buttons" hx-target="#status">
     <button hx-get="/clicked" inherit:target>Send GET</button>
