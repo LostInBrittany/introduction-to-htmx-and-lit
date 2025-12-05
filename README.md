@@ -9,6 +9,7 @@ This repository contains all the code and examples from my talk:
 - **2025-06-05** - [DevQuest](https://www.devquest.fr/) (Niort, France)
 - **2025-06-26** - [SunnyTech](https://sunnytech.io/) (Montpellier, France)
 - **2025-07-08** - [DevBcn](https://www.devbcn.com/) (Barcelona, Spain)
+- **2025-12-05** - [DevFest Dijon](https://devfest.developers-group-dijon.fr/session/cmby2ta6902j3pc3mkup4ug1g) (Dijon, France)
 
 This talk explores how **htmx 2.0** enhances HTML with seamless interactivity while **Web Components** (Lit) encapsulate logic and styling, providing a powerful yet lightweight alternative to heavy frontend frameworks.
 

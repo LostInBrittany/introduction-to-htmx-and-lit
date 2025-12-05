@@ -12,14 +12,11 @@
   <h1>To-do list example</h1>
   <h2>Step 2: Adding htmx library</h2>
 
-  <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
   <div id="app" class="container">
     <div id="todo-list"></div>
-    <form id="addTask" 
-        hx-post="/todo-list/step02/add" 
-        hx-trigger="submit" 
-        hx-target="#todo-list">
+    <form id="addTask" hx-post="/todo-list/step02/add" hx-trigger="submit" hx-target="#todo-list">
       <input type="text" name="task" required />
       <input type="submit" value="Add task" />
     </form>

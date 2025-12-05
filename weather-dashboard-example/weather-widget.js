@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm';
 
 export class WeatherWidget extends LitElement {
   static get properties() {
@@ -131,7 +131,7 @@ export class WeatherWidget extends LitElement {
       <div class="weather-container">
         <div class="weather-header">${this.name}</div>
         ${this.weatherData
-          ? html`
+        ? html`
               <div class="weather-temp">${this.weatherData.temperature}°C</div>
               <div class="weather-emoji" 
                   data-tooltip="${this.getWeatherInfo(this.weatherData.weathercode).description}">
@@ -139,7 +139,7 @@ export class WeatherWidget extends LitElement {
               </div>
               <div>${this.weatherData.windspeed} km/h wind</div>
             `
-          : html`<p>Loading...</p>`}
+        : html`<p>Loading...</p>`}
       </div>
     `;
   }
