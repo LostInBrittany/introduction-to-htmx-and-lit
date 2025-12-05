@@ -15,11 +15,11 @@
 
   <script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
-  <div id="buttons">
-    <button hx-get="/clicked" hx-target="#status">Send GET</button>
-    <button hx-post="/clicked" hx-target="#status">Send POST</button>
-    <button hx-put="/clicked" hx-target="#status">Send PUT</button>
-    <button hx-delete="/clicked" hx-target="#status">Send DELETE</button>
+  <div id="buttons" hx-target="#status">
+    <button hx-get="/clicked" inherit:target>Send GET</button>
+    <button hx-post="/clicked" inherit:target>Send POST</button>
+    <button hx-put="/clicked" inherit:target>Send PUT</button>
+    <button hx-delete="/clicked" inherit:target>Send DELETE</button>
   </div>
 
   <div id="status">No request sent</div>

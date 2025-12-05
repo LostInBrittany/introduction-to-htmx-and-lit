@@ -19,7 +19,7 @@ Below is an example of a button that sends a `POST` request when clicked and rep
 
 📁 **File:** `./htmx-example-01.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
 <div id="buttons">    
   <button hx-post="/clicked" hx-target="#status">
@@ -47,13 +47,13 @@ This example demonstrates how to use htmx to send various HTTP methods (`GET`, `
 
 📁 **File:** `./htmx-example-02.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
-<div id="buttons">
-  <button hx-get="/clicked" hx-target="#status">Send GET</button>
-  <button hx-post="/clicked" hx-target="#status">Send POST</button>
-  <button hx-put="/clicked" hx-target="#status">Send PUT</button>
-  <button hx-delete="/clicked" hx-target="#status">Send DELETE</button>
+<div id="buttons" hx-target="#status">
+  <button hx-get="/clicked" inherit:target>Send GET</button>
+  <button hx-post="/clicked" inherit:target>Send POST</button>
+  <button hx-put="/clicked" inherit:target>Send PUT</button>
+  <button hx-delete="/clicked" inherit:target>Send DELETE</button>
 </div>
 
 <div id="status">No request sent</div>
@@ -64,9 +64,13 @@ _Above: Sending RESTful requests: `GET`, `POST`, `PUT` and `DELETE`._
 
 ### 🔹 How it works
 
-- Clicking a button **triggers an HTTP request** of the corresponding method (`GET`, `POST`, `PUT`, or `DELETE`) to `/clicked`.
+- We define `hx-target="#status"` on the **parent container** (`#buttons`).
+- Each button uses `inherit:target`, which tells htmx to **inherit the target attribute from its parent**.
+- Clicking a button **triggers an HTTP request** (`GET`, `POST`, `PUT`, or `DELETE`) to `/clicked`.
 - The **server processes the request** and returns a response.
 - The **response updates the content** of `#status`, displaying the result.
+
+This demonstrates how **attribute inheritance** can reduce code duplication and keep your HTML clean.
 
 ---
 
@@ -76,7 +80,7 @@ This example demonstrates how **htmx can modify the DOM dynamically** based on t
 
 📁 **File:** `./htmx-example-03.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
 <div id="buttons-column">
   <button hx-get="/test-replace/innerHTML">
@@ -117,7 +121,7 @@ This example demonstrates how **htmx can trigger AJAX requests based on differen
 
 📁 **File:** `./htmx-example-04.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
 <div id="button-column">
   <button hx-get="/trigger/natural" hx-target="#status">
@@ -158,7 +162,7 @@ This example demonstrates how **htmx can trigger AJAX requests based on advanced
 
 📁 **File:** `./htmx-example-05.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
 <div id="buttons-column">
   <button hx-trigger="every 5s" hx-get="/trigger/5seconds" hx-target="#status">
@@ -197,7 +201,7 @@ This example demonstrates how **htmx can show a loading indicator** while waitin
 
 📁 **File:** `./htmx-example-06.html`
 ```html
-<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 
 <div id="buttons-column">
   <button hx-get="/slow-request" hx-indicator="#panel" hx-target="#status">
@@ -242,6 +246,87 @@ _Above: A spinner to ease your wait._
   - Once the response is received, **the spinner disappears**, and the **new status is displayed**.
 
 This provides **better user feedback** when handling slow requests, improving UX.
+
+---
+
+
+---
+
+## 📌 Boosting standard links
+
+This example demonstrates **`hx-boost`**, a powerful feature that allows you to **convert standard links and forms into AJAX requests** without changing your HTML structure.
+
+📁 **File:** `./htmx-example-07.html`
+```html
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+
+<body hx-boost="true">
+  <h1>&lt;/&gt; htmx examples</h1>
+  <h2>Boosting standard links</h2>
+
+  <nav>
+    <ul>
+      <li><a href="./htmx-example-01.html">Example 01</a></li>
+      <li><a href="./htmx-example-02.html">Example 02</a></li>
+      <li><a href="./htmx-example-03.html">Example 03</a></li>
+    </ul>
+  </nav>
+
+  <p>
+    Because <code>hx-boost="true"</code> is set on the body, these links 
+    will be fetched via AJAX and the body content will be swapped in, 
+    mimicking a Single Page Application (SPA) feel.
+  </p>
+</body>
+```
+
+### 🔹 How it works
+
+- The attribute `hx-boost="true"` is applied to the `<body>` (or any container).
+- htmx **intercepts all anchor tags (`<a>`) and forms** inside that element.
+- Instead of a full page reload, it **issues an AJAX request** to the target URL.
+- When the response is received, htmx **replaces the `<body>` content** with the new page's body and **updates the browser URL and history**.
+
+This provides a **SPA-like experience** with **progressive enhancement** and **no complex client-side routing**.
+
+---
+
+
+---
+
+## 📌 Using hx-boost to SPA-like experience
+
+This example demonstrates how **`hx-boost`** can be used to create a **Single Page Application (SPA) experience** between multiple pages.
+
+📁 **Files:** `./htmx-example-08-1.html` and `./htmx-example-08-2.html`
+
+```html
+<!-- htmx-example-08-1.html -->
+<body hx-boost="true">
+    <main id="content">
+        <h1>Page One</h1>
+        <a href="./htmx-example-08-2.html">Go to Page Two</a>
+    </main>
+</body>
+```
+
+```html
+<!-- htmx-example-08-2.html -->
+<body hx-boost="true">
+    <main id="content">
+        <h1>Page Two</h1>
+        <a href="./htmx-example-08-1.html">Go to Page One</a>
+    </main>
+</body>
+```
+
+### 🔹 How it works
+
+- Both pages have `hx-boost="true"` on the `<body>`.
+- When you click the link to the other page, htmx **fetches the new page via AJAX**.
+- It then **swaps the body content** of the current page with the body content of the new page.
+- The **URL is updated** in the browser address bar.
+- This creates a seamless transition without a full page reload, feeling like a native app or SPA.
 
 ---
 

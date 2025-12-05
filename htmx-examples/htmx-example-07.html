@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>&lt;/&gt; htmx examples: Boosting links</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+
+<body>
+    <h1>&lt;/&gt; htmx examples</h1>
+    <h2>Boosting standard links</h2>
+
+    <p>
+        This page uses <code>hx-boost="true"</code> on the <code>body</code> tag.
+        This means all standard links and forms will be converted to AJAX requests.
+    </p>
+
+    <nav hx-boost="true">
+        <ul>
+            <li><a href="./htmx-example-01.html">Example 01</a></li>
+            <li><a href="./htmx-example-02.html">Example 02</a></li>
+            <li><a href="./htmx-example-03.html">Example 03</a></li>
+            <li><a href="/slow-request">Slow Request (Raw Text)</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <p>
+            Click the links above. Watch the browser tab title and URL change, but notice the page doesn't do a full
+            refresh (flash).
+        </p>
+
+        <p>
+            What happens?
+        </p>
+
+        <ul>
+            <li>Links become AJAX requests automatically</li>
+            <li>Forms submit via AJAX</li>
+            <li>Only the target container is replaced</li>
+            <li>The browser history still works</li>
+            <li>Progressive enhancement: if htmx isn’t loaded, everything works normally</li>
+        </ul>`
+
+        <p>
+            Open your web browser's developer tools and compare with the same unboosted links :
+        </p>
+
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="./htmx-example-01.html">Example 01</a></li>
+            <li><a href="./htmx-example-02.html">Example 02</a></li>
+            <li><a href="./htmx-example-03.html">Example 03</a></li>
+            <li><a href="/slow-request">Slow Request (Raw Text)</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
